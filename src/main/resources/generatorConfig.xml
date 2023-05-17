@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--    データベース単位で定義でき、テーブウルに関する定義などの様々な設定を行える。またidでデータベースを指定する-->
+    <context id="spring_study"  targetRuntime="MyBatis3">
+<!--        列名にSQLキーワードが存在する場合にSQLキーワードを区切る-->
+        <property name="autoDelimitKeyWords" value="true" />
+        <property name="beginningDelimiter" value="`" />
+        <property name="endingDelimiter" value="`" />
+<!--        DBの接続情報-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/spring_study"
+                        userId="root" password="Password_123">
+        </jdbcConnection>
+        <!--テーブルに対応したJavaオブジェクトやExampleクラスの生成の設定--><!--                POJOクラスの出力先パッケージの設定--><!--        パッケージの起点になるプロジェクトのパス-->
+        <javaModelGenerator
+                targetPackage="com.example.springProduct.infrastructure.db.generated"
+                targetProject="src/main/java">
+<!--        テーブルのスキーマ毎にパッケージを作成するか指定できる-->
+            <property name="enableSubPackages" value="true" />
+<!--            データベースから文字列を受け取るときにtrim()が必ず呼び出される,文字列の前後から空白が除去される-->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+<!--        テーブルとPOJOクラスのマッピング、DAOインターフェースに対してマップされるSQLを含んだxmlファイルを生成する-->
+        <sqlMapGenerator
+                targetPackage="com.example.springProduct.infrastructure.db.mapper.generated"
+                targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+<!--        作成したPOJOクラスとxmlマッパーファイルを簡単に利用できるDAOインターフェースクラスを生成する-->
+        <javaClientGenerator
+                targetPackage="com.example.springProduct.infrastructure.db.mapper.generated"
+                targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+<!--        対象とするテーブルや生成するSQLの指定ができる、tableName="%"で全テーブルを指定-->
+        <table tableName="%"
+               enableInsert="true"
+               enableSelectByPrimaryKey="true"
+               enableSelectByExample="true"
+               enableUpdateByPrimaryKey="true"
+               enableUpdateByExample="true"
+               enableDeleteByPrimaryKey="true"
+               enableDeleteByExample="true"
+               enableCountByExample="true"
+               selectByExampleQueryId="true"
+               modelType="flat" >
+        </table>
+    </context>
+</generatorConfiguration>
