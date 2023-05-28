@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springProduct.infrastructure.db.mapper.generated.GenUsersMapper">
+  <resultMap id="BaseResultMap" type="com.example.springProduct.infrastructure.db.generated.GenUsers">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="login_id" jdbcType="VARCHAR" property="loginId" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    user_id, user_name, login_id, `password`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.example.springProduct.domain.model.value.object.Id" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select 
+    <include refid="Base_Column_List" />
+    from users
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.springProduct.domain.model.value.object.Id">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    delete from users
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.springProduct.infrastructure.db.generated.GenUsers" useGeneratedKeys="true" keyProperty="userId">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    insert into users (user_id, user_name, login_id, 
+      `password`)
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{loginId,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.springProduct.infrastructure.db.generated.GenUsers">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="loginId != null">
+        login_id,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginId != null">
+        #{loginId,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.springProduct.infrastructure.db.generated.GenUsers">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update users
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginId != null">
+        login_id = #{loginId,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.springProduct.infrastructure.db.generated.GenUsers">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update users
+    set user_name = #{userName,jdbcType=VARCHAR},
+      login_id = #{loginId,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>
