@@ -1,4 +1,4 @@
-package com.example.springProduct.Converter;
+package com.example.springProduct.converter;
 
 import com.example.springProduct.domain.model.value.AbstractDecimalValueObject;
 import lombok.NonNull;

@@ -1,24 +1,21 @@
-package com.example.springProduct.infrastructure.db.dto.user;
+package com.example.springProduct.domain.model.user;
 
 import com.example.springProduct.constant.code.RoleFlugEnum;
 import com.example.springProduct.domain.model.value.object.Id;
 import com.example.springProduct.domain.model.value.object.LoginId;
 import com.example.springProduct.domain.model.value.object.UserName;
+import com.example.springProduct.infrastructure.db.dto.user.UserDto;
 import com.example.springProduct.infrastructure.db.generated.GenUsers;
-import com.example.springProduct.infrastructure.db.generated.Users;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
-public class UserDto {
+@Builder
+public class UserRoles {
 
-    private Id userId;
-
-    private UserName userName;
-
-    private LoginId loginId;
-
-    private String password;
-
+    /**
+     * 参照権限
+     */
     private RoleFlugEnum authorityRead;
 
     /**
@@ -31,8 +28,4 @@ public class UserDto {
      */
     private RoleFlugEnum authorityAdmin;
 
-
-    public Users toGenDto(){
-        return Users.of(userId,userName,loginId,password,authorityRead,authorityUpdate,authorityAdmin);
-    }
 }

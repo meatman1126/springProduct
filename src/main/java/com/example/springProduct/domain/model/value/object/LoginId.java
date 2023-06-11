@@ -15,4 +15,7 @@ public class LoginId extends AbstractStringValueObject<LoginId> {
     @Override
     public String getLogicalName(){return "ログインID";}
 
+    @Override
+    public String toString(){return super.toString();}
+
 }

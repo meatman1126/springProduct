@@ -2,10 +2,12 @@ package com.example.springProduct.domain.repostiory.user;
 
 import com.example.springProduct.domain.model.user.UserModel;
 import com.example.springProduct.domain.model.value.object.Id;
+import com.example.springProduct.domain.model.value.object.LoginId;
 import com.example.springProduct.infrastructure.db.dto.user.UserDto;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository {
@@ -13,6 +15,8 @@ public interface UserRepository {
     public List<UserModel> findUserInfo();
 
     public UserModel findUserInfoByUserId(Id userId);
+
+    public Optional<UserModel> findUserInfoByLoginId(LoginId loginId);
 
     public Id registerUser(UserDto userDto);
 

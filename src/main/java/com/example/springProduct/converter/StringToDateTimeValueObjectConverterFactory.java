@@ -1,24 +1,25 @@
-package com.example.springProduct.Converter;
+package com.example.springProduct.converter;
 
-import com.example.springProduct.domain.model.value.AbstractShortValueObject;
+import com.example.springProduct.domain.model.value.AbstractDateTimeValueObject;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanInstantiationException;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
-import org.springframework.util.NumberUtils;
 
 import java.lang.reflect.InvocationTargetException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
- * <p>文字列を数値型 Value Object に変換するConverterのファクトリクラスです。</p>
+ * <p>文字列を日時型 Value Object に変換するConverterのファクトリクラスです。</p>
  */
 @Slf4j
-public class StringToShortValueObjectConverterFactory implements ConverterFactory<String, AbstractShortValueObject<?>> {
+public class StringToDateTimeValueObjectConverterFactory implements ConverterFactory<String, AbstractDateTimeValueObject<?>> {
 
     @Override
-    public <T extends AbstractShortValueObject<?>> Converter<String, T> getConverter(@NonNull Class<T> targetType){
-        return new StringToShortValueObjectConverter<>(targetType);
+    public <T extends AbstractDateTimeValueObject<?>> Converter<String, T> getConverter(@NonNull Class<T> targetType){
+        return new StringToDateTimeValueObjectConverter<>(targetType);
     }
 
 
@@ -26,10 +27,10 @@ public class StringToShortValueObjectConverterFactory implements ConverterFactor
      * <p>文字列を数値型 Value Object に変換するConverterクラスです。</p>
      * @param <T> 文字列 Value Object の型
      */
-    private static final class StringToShortValueObjectConverter<T extends AbstractShortValueObject<?>> implements Converter<String, T>{
+    private static final class StringToDateTimeValueObjectConverter<T extends AbstractDateTimeValueObject<?>> implements Converter<String, T>{
 
         /**
-         * 数値 Value Object の型
+         * 日時 Value Object の型
          */
         private final Class<T> valueType;
 
@@ -38,7 +39,7 @@ public class StringToShortValueObjectConverterFactory implements ConverterFactor
          * @param valueType 変換先の Value Object の型
          *
          */
-        private StringToShortValueObjectConverter(Class<T> valueType){
+        private StringToDateTimeValueObjectConverter(Class<T> valueType){
             this.valueType = valueType;
         }
 
@@ -48,9 +49,9 @@ public class StringToShortValueObjectConverterFactory implements ConverterFactor
                 return null;
             }
 
-            Short value = NumberUtils.parseNumber(source, Short.class);
+            LocalDateTime value = LocalDateTime.parse(source, DateTimeFormatter.ISO_DATE_TIME);
             try {
-                return valueType.getConstructor(Short.class).newInstance(value);
+                return valueType.getConstructor(LocalDateTime.class).newInstance(value);
             }catch (NoSuchMethodException | InstantiationException | IllegalAccessException e){
                 throw new BeanInstantiationException(valueType, "instantiation failed", e);
             }catch (InvocationTargetException e){

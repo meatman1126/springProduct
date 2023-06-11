@@ -1,11 +1,9 @@
-package com.example.springProduct.presentation.form;
+package com.example.springProduct.presentation.form.user;
 
 import com.example.springProduct.domain.model.value.object.*;
 import com.example.springProduct.infrastructure.db.dto.user.UserDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
 
 
 @NoArgsConstructor

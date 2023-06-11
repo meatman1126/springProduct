@@ -15,4 +15,8 @@ public class UserName extends AbstractStringValueObject<UserName> {
     @Override
     public String getLogicalName(){return "ユーザ名";}
 
+    @Override
+    public String toString(){return super.toString();}
+
+
 }

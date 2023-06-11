@@ -1,6 +1,6 @@
-package com.example.springProduct.Converter;
+package com.example.springProduct.converter;
 
-import com.example.springProduct.domain.model.value.AbstractIntValueObject;
+import com.example.springProduct.domain.model.value.AbstractLongValueObject;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanInstantiationException;
@@ -14,11 +14,11 @@ import java.lang.reflect.InvocationTargetException;
  * <p>文字列を数値型 Value Object に変換するConverterのファクトリクラスです。</p>
  */
 @Slf4j
-public class StringToIntValueObjectConverterFactory implements ConverterFactory<String, AbstractIntValueObject<?>> {
+public class StringToLongValueObjectConverterFactory implements ConverterFactory<String, AbstractLongValueObject<?>> {
 
     @Override
-    public <T extends AbstractIntValueObject<?>> Converter<String, T> getConverter(@NonNull Class<T> targetType){
-        return new StringToIntValueObjectConverter<>(targetType);
+    public <T extends AbstractLongValueObject<?>> Converter<String, T> getConverter(@NonNull Class<T> targetType){
+        return new StringToLongValueObjectConverter<>(targetType);
     }
 
 
@@ -26,7 +26,7 @@ public class StringToIntValueObjectConverterFactory implements ConverterFactory<
      * <p>文字列を数値型 Value Object に変換するConverterクラスです。</p>
      * @param <T> 文字列 Value Object の型
      */
-    private static final class StringToIntValueObjectConverter<T extends AbstractIntValueObject<?>> implements Converter<String, T>{
+    private static final class StringToLongValueObjectConverter<T extends AbstractLongValueObject<?>> implements Converter<String, T>{
 
         /**
          * 数値 Value Object の型
@@ -38,7 +38,7 @@ public class StringToIntValueObjectConverterFactory implements ConverterFactory<
          * @param valueType 変換先の Value Object の型
          *
          */
-        private StringToIntValueObjectConverter(Class<T> valueType){
+        private StringToLongValueObjectConverter(Class<T> valueType){
             this.valueType = valueType;
         }
 
@@ -48,9 +48,9 @@ public class StringToIntValueObjectConverterFactory implements ConverterFactory<
                 return null;
             }
 
-            Integer value = NumberUtils.parseNumber(source, Integer.class);
+            Long value = NumberUtils.parseNumber(source, Long.class);
             try {
-                return valueType.getConstructor(Integer.class).newInstance(value);
+                return valueType.getConstructor(Long.class).newInstance(value);
             }catch (NoSuchMethodException | InstantiationException | IllegalAccessException e){
                 throw new BeanInstantiationException(valueType, "instantiation failed", e);
             }catch (InvocationTargetException e){

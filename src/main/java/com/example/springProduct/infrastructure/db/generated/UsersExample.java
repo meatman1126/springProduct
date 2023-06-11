@@ -1,5 +1,9 @@
 package com.example.springProduct.infrastructure.db.generated;
 
+import com.example.springProduct.constant.code.RoleFlugEnum;
+import com.example.springProduct.domain.model.value.object.Id;
+import com.example.springProduct.domain.model.value.object.LoginId;
+import com.example.springProduct.domain.model.value.object.UserName;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -156,52 +160,52 @@ public class UsersExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Id value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Id value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Id value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Id value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Id value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Id value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Id> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Id> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Id value1, Id value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Id value1, Id value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -216,62 +220,62 @@ public class UsersExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserNameEqualTo(String value) {
+        public Criteria andUserNameEqualTo(UserName value) {
             addCriterion("user_name =", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotEqualTo(String value) {
+        public Criteria andUserNameNotEqualTo(UserName value) {
             addCriterion("user_name <>", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameGreaterThan(String value) {
+        public Criteria andUserNameGreaterThan(UserName value) {
             addCriterion("user_name >", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameGreaterThanOrEqualTo(String value) {
+        public Criteria andUserNameGreaterThanOrEqualTo(UserName value) {
             addCriterion("user_name >=", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLessThan(String value) {
+        public Criteria andUserNameLessThan(UserName value) {
             addCriterion("user_name <", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLessThanOrEqualTo(String value) {
+        public Criteria andUserNameLessThanOrEqualTo(UserName value) {
             addCriterion("user_name <=", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLike(String value) {
+        public Criteria andUserNameLike(UserName value) {
             addCriterion("user_name like", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotLike(String value) {
+        public Criteria andUserNameNotLike(UserName value) {
             addCriterion("user_name not like", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIn(List<String> values) {
+        public Criteria andUserNameIn(List<UserName> values) {
             addCriterion("user_name in", values, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotIn(List<String> values) {
+        public Criteria andUserNameNotIn(List<UserName> values) {
             addCriterion("user_name not in", values, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameBetween(String value1, String value2) {
+        public Criteria andUserNameBetween(UserName value1, UserName value2) {
             addCriterion("user_name between", value1, value2, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotBetween(String value1, String value2) {
+        public Criteria andUserNameNotBetween(UserName value1, UserName value2) {
             addCriterion("user_name not between", value1, value2, "userName");
             return (Criteria) this;
         }
@@ -286,62 +290,62 @@ public class UsersExample {
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdEqualTo(String value) {
+        public Criteria andLoginIdEqualTo(LoginId value) {
             addCriterion("login_id =", value, "loginId");
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdNotEqualTo(String value) {
+        public Criteria andLoginIdNotEqualTo(LoginId value) {
             addCriterion("login_id <>", value, "loginId");
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdGreaterThan(String value) {
+        public Criteria andLoginIdGreaterThan(LoginId value) {
             addCriterion("login_id >", value, "loginId");
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdGreaterThanOrEqualTo(String value) {
+        public Criteria andLoginIdGreaterThanOrEqualTo(LoginId value) {
             addCriterion("login_id >=", value, "loginId");
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdLessThan(String value) {
+        public Criteria andLoginIdLessThan(LoginId value) {
             addCriterion("login_id <", value, "loginId");
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdLessThanOrEqualTo(String value) {
+        public Criteria andLoginIdLessThanOrEqualTo(LoginId value) {
             addCriterion("login_id <=", value, "loginId");
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdLike(String value) {
+        public Criteria andLoginIdLike(LoginId value) {
             addCriterion("login_id like", value, "loginId");
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdNotLike(String value) {
+        public Criteria andLoginIdNotLike(LoginId value) {
             addCriterion("login_id not like", value, "loginId");
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdIn(List<String> values) {
+        public Criteria andLoginIdIn(List<LoginId> values) {
             addCriterion("login_id in", values, "loginId");
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdNotIn(List<String> values) {
+        public Criteria andLoginIdNotIn(List<LoginId> values) {
             addCriterion("login_id not in", values, "loginId");
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdBetween(String value1, String value2) {
+        public Criteria andLoginIdBetween(LoginId value1, LoginId value2) {
             addCriterion("login_id between", value1, value2, "loginId");
             return (Criteria) this;
         }
 
-        public Criteria andLoginIdNotBetween(String value1, String value2) {
+        public Criteria andLoginIdNotBetween(LoginId value1, LoginId value2) {
             addCriterion("login_id not between", value1, value2, "loginId");
             return (Criteria) this;
         }
@@ -413,6 +417,186 @@ public class UsersExample {
 
         public Criteria andPasswordNotBetween(String value1, String value2) {
             addCriterion("`password` not between", value1, value2, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadIsNull() {
+            addCriterion("authority_read is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadIsNotNull() {
+            addCriterion("authority_read is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_read =", value, "authorityRead");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadNotEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_read <>", value, "authorityRead");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadGreaterThan(RoleFlugEnum value) {
+            addCriterion("authority_read >", value, "authorityRead");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadGreaterThanOrEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_read >=", value, "authorityRead");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadLessThan(RoleFlugEnum value) {
+            addCriterion("authority_read <", value, "authorityRead");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadLessThanOrEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_read <=", value, "authorityRead");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadIn(List<RoleFlugEnum> values) {
+            addCriterion("authority_read in", values, "authorityRead");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadNotIn(List<RoleFlugEnum> values) {
+            addCriterion("authority_read not in", values, "authorityRead");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadBetween(RoleFlugEnum value1, RoleFlugEnum value2) {
+            addCriterion("authority_read between", value1, value2, "authorityRead");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityReadNotBetween(RoleFlugEnum value1, RoleFlugEnum value2) {
+            addCriterion("authority_read not between", value1, value2, "authorityRead");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateIsNull() {
+            addCriterion("authority_update is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateIsNotNull() {
+            addCriterion("authority_update is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_update =", value, "authorityUpdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateNotEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_update <>", value, "authorityUpdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateGreaterThan(RoleFlugEnum value) {
+            addCriterion("authority_update >", value, "authorityUpdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateGreaterThanOrEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_update >=", value, "authorityUpdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateLessThan(RoleFlugEnum value) {
+            addCriterion("authority_update <", value, "authorityUpdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateLessThanOrEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_update <=", value, "authorityUpdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateIn(List<RoleFlugEnum> values) {
+            addCriterion("authority_update in", values, "authorityUpdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateNotIn(List<RoleFlugEnum> values) {
+            addCriterion("authority_update not in", values, "authorityUpdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateBetween(RoleFlugEnum value1, RoleFlugEnum value2) {
+            addCriterion("authority_update between", value1, value2, "authorityUpdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityUpdateNotBetween(RoleFlugEnum value1, RoleFlugEnum value2) {
+            addCriterion("authority_update not between", value1, value2, "authorityUpdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminIsNull() {
+            addCriterion("authority_admin is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminIsNotNull() {
+            addCriterion("authority_admin is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_admin =", value, "authorityAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminNotEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_admin <>", value, "authorityAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminGreaterThan(RoleFlugEnum value) {
+            addCriterion("authority_admin >", value, "authorityAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminGreaterThanOrEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_admin >=", value, "authorityAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminLessThan(RoleFlugEnum value) {
+            addCriterion("authority_admin <", value, "authorityAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminLessThanOrEqualTo(RoleFlugEnum value) {
+            addCriterion("authority_admin <=", value, "authorityAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminIn(List<RoleFlugEnum> values) {
+            addCriterion("authority_admin in", values, "authorityAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminNotIn(List<RoleFlugEnum> values) {
+            addCriterion("authority_admin not in", values, "authorityAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminBetween(RoleFlugEnum value1, RoleFlugEnum value2) {
+            addCriterion("authority_admin between", value1, value2, "authorityAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorityAdminNotBetween(RoleFlugEnum value1, RoleFlugEnum value2) {
+            addCriterion("authority_admin not between", value1, value2, "authorityAdmin");
             return (Criteria) this;
         }
     }

@@ -1,6 +1,6 @@
-package com.example.springProduct.Converter;
+package com.example.springProduct.converter;
 
-import com.example.springProduct.domain.model.value.AbstractStringValueObject;
+import com.example.springProduct.domain.model.value.AbstractDateValueObject;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanInstantiationException;
@@ -8,27 +8,29 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
 
 import java.lang.reflect.InvocationTargetException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
- * <p>文字列を文字列型 Value Object に変換するConverterのファクトリクラスです。</p>
+ * <p>文字列を日付型 Value Object に変換するConverterのファクトリクラスです。</p>
  */
 @Slf4j
-public class StringToStringValueObjectConverterFactory implements ConverterFactory<String, AbstractStringValueObject<?>> {
+public class StringToDateValueObjectConverterFactory implements ConverterFactory<String, AbstractDateValueObject<?>> {
 
     @Override
-    public <T extends AbstractStringValueObject<?>> Converter<String, T> getConverter(@NonNull Class<T> targetType){
-        return new StringToStringValueObjectConverter<>(targetType);
+    public <T extends AbstractDateValueObject<?>> Converter<String, T> getConverter(@NonNull Class<T> targetType){
+        return new StringToDateValueObjectConverter<>(targetType);
     }
 
 
     /**
-     * <p>文字列を文字列型 Value Object に変換するConverterクラスです。</p>
+     * <p>文字列を数値型 Value Object に変換するConverterクラスです。</p>
      * @param <T> 文字列 Value Object の型
      */
-    private static final class StringToStringValueObjectConverter<T extends AbstractStringValueObject<?>> implements Converter<String, T>{
+    private static final class StringToDateValueObjectConverter<T extends AbstractDateValueObject<?>> implements Converter<String, T>{
 
         /**
-         * 文字列 Value Object の型
+         * 日付 Value Object の型
          */
         private final Class<T> valueType;
 
@@ -37,7 +39,7 @@ public class StringToStringValueObjectConverterFactory implements ConverterFacto
          * @param valueType 変換先の Value Object の型
          *
          */
-        private StringToStringValueObjectConverter(Class<T> valueType){
+        private StringToDateValueObjectConverter(Class<T> valueType){
             this.valueType = valueType;
         }
 
@@ -47,8 +49,9 @@ public class StringToStringValueObjectConverterFactory implements ConverterFacto
                 return null;
             }
 
+            LocalDate value = LocalDate.parse(source, DateTimeFormatter.ISO_DATE);
             try {
-                return valueType.getConstructor(String.class).newInstance(source);
+                return valueType.getConstructor(LocalDate.class).newInstance(value);
             }catch (NoSuchMethodException | InstantiationException | IllegalAccessException e){
                 throw new BeanInstantiationException(valueType, "instantiation failed", e);
             }catch (InvocationTargetException e){

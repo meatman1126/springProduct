@@ -12,4 +12,6 @@ public abstract class AbstractStringValueObject<T extends AbstractStringValueObj
      * @param value 値
      */
     protected AbstractStringValueObject(String value){super(value);}
+
+
 }

@@ -1,4 +1,4 @@
-package com.example.springProduct.presentation.form;
+package com.example.springProduct.presentation.form.user;
 
 import com.example.springProduct.domain.model.user.UserModel;
 import com.example.springProduct.domain.model.value.object.Id;
@@ -7,7 +7,6 @@ import com.example.springProduct.domain.model.value.object.UserName;
 import com.example.springProduct.infrastructure.db.dto.user.UserDto;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 

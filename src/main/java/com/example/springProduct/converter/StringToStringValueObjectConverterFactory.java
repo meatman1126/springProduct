@@ -1,35 +1,34 @@
-package com.example.springProduct.Converter;
+package com.example.springProduct.converter;
 
-import com.example.springProduct.domain.model.value.AbstractLongValueObject;
+import com.example.springProduct.domain.model.value.AbstractStringValueObject;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanInstantiationException;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
-import org.springframework.util.NumberUtils;
 
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * <p>文字列を数値型 Value Object に変換するConverterのファクトリクラスです。</p>
+ * <p>文字列を文字列型 Value Object に変換するConverterのファクトリクラスです。</p>
  */
 @Slf4j
-public class StringToLongValueObjectConverterFactory implements ConverterFactory<String, AbstractLongValueObject<?>> {
+public class StringToStringValueObjectConverterFactory implements ConverterFactory<String, AbstractStringValueObject<?>> {
 
     @Override
-    public <T extends AbstractLongValueObject<?>> Converter<String, T> getConverter(@NonNull Class<T> targetType){
-        return new StringToLongValueObjectConverter<>(targetType);
+    public <T extends AbstractStringValueObject<?>> Converter<String, T> getConverter(@NonNull Class<T> targetType){
+        return new StringToStringValueObjectConverter<>(targetType);
     }
 
 
     /**
-     * <p>文字列を数値型 Value Object に変換するConverterクラスです。</p>
+     * <p>文字列を文字列型 Value Object に変換するConverterクラスです。</p>
      * @param <T> 文字列 Value Object の型
      */
-    private static final class StringToLongValueObjectConverter<T extends AbstractLongValueObject<?>> implements Converter<String, T>{
+    private static final class StringToStringValueObjectConverter<T extends AbstractStringValueObject<?>> implements Converter<String, T>{
 
         /**
-         * 数値 Value Object の型
+         * 文字列 Value Object の型
          */
         private final Class<T> valueType;
 
@@ -38,7 +37,7 @@ public class StringToLongValueObjectConverterFactory implements ConverterFactory
          * @param valueType 変換先の Value Object の型
          *
          */
-        private StringToLongValueObjectConverter(Class<T> valueType){
+        private StringToStringValueObjectConverter(Class<T> valueType){
             this.valueType = valueType;
         }
 
@@ -48,9 +47,8 @@ public class StringToLongValueObjectConverterFactory implements ConverterFactory
                 return null;
             }
 
-            Long value = NumberUtils.parseNumber(source, Long.class);
             try {
-                return valueType.getConstructor(Long.class).newInstance(value);
+                return valueType.getConstructor(String.class).newInstance(source);
             }catch (NoSuchMethodException | InstantiationException | IllegalAccessException e){
                 throw new BeanInstantiationException(valueType, "instantiation failed", e);
             }catch (InvocationTargetException e){

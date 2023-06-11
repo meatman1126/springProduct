@@ -1,6 +1,6 @@
 package com.example.springProduct.config;
 
-import com.example.springProduct.Converter.*;
+import com.example.springProduct.converter.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

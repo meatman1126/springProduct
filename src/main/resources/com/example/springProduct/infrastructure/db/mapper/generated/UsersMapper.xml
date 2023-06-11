@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springProduct.infrastructure.db.mapper.generated.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.example.springProduct.infrastructure.db.generated.Users">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="login_id" jdbcType="VARCHAR" property="loginId" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="authority_read" jdbcType="BIT" property="authorityRead" />
+    <result column="authority_update" jdbcType="BIT" property="authorityUpdate" />
+    <result column="authority_admin" jdbcType="BIT" property="authorityAdmin" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    user_id, user_name, login_id, `password`, authority_read, authority_update, authority_admin
+  </sql>
+  <select id="selectByExample" parameterType="com.example.springProduct.infrastructure.db.generated.UsersExample" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from users
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.example.springProduct.domain.model.value.object.Id" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select 
+    <include refid="Base_Column_List" />
+    from users
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.springProduct.domain.model.value.object.Id">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    delete from users
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.springProduct.infrastructure.db.generated.UsersExample">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    delete from users
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.springProduct.infrastructure.db.generated.Users">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    insert into users (user_id, user_name, login_id, 
+      `password`, authority_read, authority_update, 
+      authority_admin)
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{loginId,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{authorityRead,jdbcType=BIT}, #{authorityUpdate,jdbcType=BIT}, 
+      #{authorityAdmin,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.springProduct.infrastructure.db.generated.Users">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="loginId != null">
+        login_id,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="authorityRead != null">
+        authority_read,
+      </if>
+      <if test="authorityUpdate != null">
+        authority_update,
+      </if>
+      <if test="authorityAdmin != null">
+        authority_admin,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginId != null">
+        #{loginId,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityRead != null">
+        #{authorityRead,jdbcType=BIT},
+      </if>
+      <if test="authorityUpdate != null">
+        #{authorityUpdate,jdbcType=BIT},
+      </if>
+      <if test="authorityAdmin != null">
+        #{authorityAdmin,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.springProduct.infrastructure.db.generated.UsersExample" resultType="java.lang.Long">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select count(*) from users
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update users
+    <set>
+      <if test="row.userId != null">
+        user_id = #{row.userId,jdbcType=INTEGER},
+      </if>
+      <if test="row.userName != null">
+        user_name = #{row.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="row.loginId != null">
+        login_id = #{row.loginId,jdbcType=VARCHAR},
+      </if>
+      <if test="row.password != null">
+        `password` = #{row.password,jdbcType=VARCHAR},
+      </if>
+      <if test="row.authorityRead != null">
+        authority_read = #{row.authorityRead,jdbcType=BIT},
+      </if>
+      <if test="row.authorityUpdate != null">
+        authority_update = #{row.authorityUpdate,jdbcType=BIT},
+      </if>
+      <if test="row.authorityAdmin != null">
+        authority_admin = #{row.authorityAdmin,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update users
+    set user_id = #{row.userId,jdbcType=INTEGER},
+      user_name = #{row.userName,jdbcType=VARCHAR},
+      login_id = #{row.loginId,jdbcType=VARCHAR},
+      `password` = #{row.password,jdbcType=VARCHAR},
+      authority_read = #{row.authorityRead,jdbcType=BIT},
+      authority_update = #{row.authorityUpdate,jdbcType=BIT},
+      authority_admin = #{row.authorityAdmin,jdbcType=BIT}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.springProduct.infrastructure.db.generated.Users">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update users
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginId != null">
+        login_id = #{loginId,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityRead != null">
+        authority_read = #{authorityRead,jdbcType=BIT},
+      </if>
+      <if test="authorityUpdate != null">
+        authority_update = #{authorityUpdate,jdbcType=BIT},
+      </if>
+      <if test="authorityAdmin != null">
+        authority_admin = #{authorityAdmin,jdbcType=BIT},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.springProduct.infrastructure.db.generated.Users">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update users
+    set user_name = #{userName,jdbcType=VARCHAR},
+      login_id = #{loginId,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      authority_read = #{authorityRead,jdbcType=BIT},
+      authority_update = #{authorityUpdate,jdbcType=BIT},
+      authority_admin = #{authorityAdmin,jdbcType=BIT}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>
