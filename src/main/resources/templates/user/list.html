@@ -5,38 +5,41 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<div align="center">
-    <h1>ユーザ情報一覧</h1>
-    <header th:replace="fragments/header"></header>
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>ユーザID</th>
-                <th>ユーザ名</th>
-                <th>ログインID</th>
-                <th>参照権限</th>
-                <th>更新権限</th>
-                <th>管理者権限</th>
-                <th></th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="item : ${userInfo}" th:object="${item}">
-                <td th:text="*{userId.getValue}">ユーザID</td>
-                <td th:text="*{userName.getValue}">ユーザ名</td>
-                <td th:text="*{loginId.getValue}">ログインID</td>
-                <td th:text="*{userRoles.getAuthorityRead}">参照権限</td>
-                <td th:text="*{userRoles.getAuthorityUpdate}">更新権限</td>
-                <td th:text="*{userRoles.getAuthorityAdmin}">管理者権限</td>
-                <td><a th:href="@{/user/edit/{userId}(userId=${item.userId.getValue()})}">編集</a></td>
-                <td><a th:href="@{/user/delete/{userId}(userId=${item.userId.getValue()})}">削除</a></td>
-            </tr>
-            </tbody>
-        </table>
-
+    <div align="center">
+        <h1>ユーザ情報一覧</h1>
+        <header th:replace="fragments/header"></header>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ユーザID</th>
+                    <th>ユーザ名</th>
+                    <th>ログインID</th>
+                    <th>参照権限</th>
+                    <th>更新権限</th>
+                    <th>管理者権限</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${userInfo}" th:object="${item}">
+                    <td th:text="*{userId.getValue}">ユーザID</td>
+                    <td th:text="*{userName.getValue}">ユーザ名</td>
+                    <td th:text="*{loginId.getValue}">ログインID</td>
+                    <td th:text="*{userRoles.getAuthorityRead}">参照権限</td>
+                    <td th:text="*{userRoles.getAuthorityUpdate}">更新権限</td>
+                    <td th:text="*{userRoles.getAuthorityAdmin}">管理者権限</td>
+                    <td><a th:href="@{/user/edit/{userId}(userId=${item.userId.getValue()})}">編集</a></td>
+                    <td><a th:href="@{/user/delete/{userId}(userId=${item.userId.getValue()})}">削除</a></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <a th:href="@{/user/new}" class="btn btn-primary">新規登録はこちら</a>
+            </div>
+        </div>
     </div>
-</div>
+    <div th:replace="fragments/scripts"></div>
 </body>
 </html>

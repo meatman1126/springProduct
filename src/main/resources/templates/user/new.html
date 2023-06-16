@@ -1,33 +1,52 @@
 <!DOCTYPE html>
-<html lang="jp" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org.extras/spring-security">
+<head th:replace="fragments/head :: head('ユーザ情報登録')">
   <meta charset="UTF-8">
-  <title>Hello</title>
 </head>
 <body>
-<div align="center">
-  <h1>User Registration</h1>
-  <div>
-    <ul th:if="${errors}">
-      <li th:each="error : ${errors}" th:text="${error}">
-        エラーメッセージ
-      </li>
-    </ul>
+  <div align="center">
+    <h1>ユーザ情報登録</h1>
+    <header th:replace="fragments/header"></header>
+    <div>
+      <ul th:if="${errors}">
+        <li th:each="error : ${errors}" th:text="${error}">
+          エラーメッセージ
+        </li>
+      </ul>
+    </div>
+    <div class="container text-start">
+      <form th:action="@{/user/register}" method="post" th:object="${form}">
+
+<!--        <label>UserName:</label>-->
+<!--        <input type="text" th:field="${form.userName}"/><br/>-->
+
+<!--        <label>LoginID:</label>-->
+<!--        <input type="text" th:field="${form.loginId}"/><br/>-->
+
+<!--        <label>ユーザ名:</label>-->
+<!--        <input type="text" th:field="${form.password}"/><br/>-->
+        <div class="mb-3">
+          <label class="form-label">ユーザ名:</label>
+          <input th:field="*{userName}" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">ログインID:</label>
+          <input type="text" th:field="*{loginId}" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">パスワード:</label>
+          <input type="text" th:field="*{password}" class="form-control">
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">登録</button>
+        </div>
+
+      </form>
+
+    </div>
+
   </div>
-
-  <form th:action="@{/user/register}" method="post" th:object="${form}">
-
-    <label>UserName:</label>
-    <input type="text" th:field="${form.userName}"/><br/>
-
-    <label>LoginID:</label>
-    <input type="text" th:field="${form.loginId}"/><br/>
-
-    <label>Password:</label>
-    <input type="text" th:field="${form.password}"/><br/>
-
-    <button type="submit">Register</button>
-  </form>
-</div>
+  <div th:replace="fragments/scripts"></div>
 </body>
 </html>

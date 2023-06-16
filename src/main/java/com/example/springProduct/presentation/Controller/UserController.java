@@ -9,6 +9,8 @@ import com.example.springProduct.presentation.form.user.UserRegisterForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,6 +26,7 @@ import java.util.Locale;
 
 @Controller
 @Slf4j
+@EnableMethodSecurity
 public class UserController {
 
     @Autowired
@@ -48,7 +51,6 @@ public class UserController {
         model.addAttribute("userInfo", userModelList);
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = UserDetails.class.cast(authentication.getPrincipal());
-        String userUuid = userDetails.getUsername();
         return "user/list";
     }
     /**
@@ -64,6 +66,7 @@ public class UserController {
      * ユーザを新規登録します。
      */
     @RequestMapping("/user/register")
+    @PreAuthorize("hasRole('authorityUpdate')")
     public String register(UserRegisterForm form, Model model){
 
         UserDto userDto = form.toDto();
